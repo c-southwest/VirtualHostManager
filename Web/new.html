@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="GB2312">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>开通Web服务</title>
+    <style>
+        html,
+        body,
+        .container {
+            height: 100%;
+        }
+        label{display: block}
+        body{background-color:lightgoldenrodyellow}
+    </style>
+    <script>
+//同步函数 
+function synchronize(){ 
+        document.getElementById('domain').value =document.getElementById('ftpusername').value + ".1000.red"; 
+        //alert("同步成功"); 
+     } 
+      //执行同步 
+      setInterval(synchronize,200);//同步的时间间隔，每0.2秒同步一次 
+
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center align-items-center h-100">
+            <form action="index.cgi" method="POST" class="form-group">
+                <input type="hidden" name="action" value="new">
+                <label for="">
+                    IP地址：
+                    <select class="form-control" name="ip">
+                        <option value="10.65.227.15">10.65.227.15</option>
+                    </select>
+                </label>
+                <label for="">
+                    FTP用户名：
+                    <input onkeyup="builder();" id="ftpusername" autofocus required name="ftpusername" class="form-control" type="text">
+                </label>
+                <label for="">
+                    FTP密码：
+                    <input name="ftppassword" value="123456789" class="form-control" type="text">
+                </label>
+                <label for="">
+                    绑定域名：
+                    <input id="domain" name="domain" class="form-control" value=".1000.red" type="text">
+                </label>
+                <button class="btn btn-success btn-block">一键开通</button>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
